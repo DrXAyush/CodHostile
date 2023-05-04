@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+string f(int i, string s) {
+    if(i>=s.length()/2) {
+    	return "Done";
+    }
+    if(s[i] != s[s.length()-i-1]) {
+    	
+    	return "Not a Panlidrome";
+    }
+    f(i+1, s);
+    return "Panlidrome";
+}
+int main() {
+	string s;
+	cin>>s;
+	cout<<f(0, s);
+}
