@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+void f(int i, int n[], int a) {
+    if(i>=a/2) {
+    	return;
+    }
+    swap(n[i], n[a-i-1]);
+    f(i+1, n, a);
+}
+int main() {
+	int a;
+	cin>>a;
+	int n[a];
+	for(int i=0; i<a; ++i) {
+		cin>>n[i];
+	}
+    f(0, n, a);
+    for(int j=0; j<a; ++j) {
+    	cout<<n[j]<<" ";
+    }
+}
