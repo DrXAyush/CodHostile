@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+void f(int i, int n, int arr[], vector<int> v) {
+	if(i>=n) {
+		for(int j=0; j<v.size(); ++j) {
+			cout<<v[j]<<" ";
+		}
+		cout<<endl;
+		return;
+	}
+	v.push_back(arr[i]);
+	f(i+1, n, arr, v);
+	v.pop_back();
+	f(i+1, n, arr, v);
+}
+int main() {
+	int arr[] = {3, 1, 2};
+	vector<int> v;
+	f(0, 3, arr, v);
+}
