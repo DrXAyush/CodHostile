@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool f(int i, int n, int arr[], vector<int> v, int sum, int x) {
+	if(i>=n) {
+		for(int j=0; j<v.size(); ++j) {
+			sum = sum + v[j];
+		}
+		if(sum == x) {
+			for(int a=0; a<v.size(); ++a) {
+				cout<<v[a]<<" ";
+			}
+			cout<<endl;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	v.push_back(arr[i]);
+	if(f(i+1, n, arr, v, sum, x) == true) {
+		return true;
+	}
+	v.pop_back();
+	if(f(i+1, n, arr, v, sum, x) == true) {
+		return true;
+	}
+	return false;
+}
+int main() {
+	int arr[] = {1, 2, 1};
+	vector<int> v;
+	f(0, 3, arr, v, 0, 2);
+}
