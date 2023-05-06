@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+// bool flag = false;
+void f(int i, int n, int arr[], vector<int> v, int sum, int x) {
+	if(i>=n) {
+		for(int j=0; j<v.size(); ++j) {
+			sum = sum + v[j];
+		}
+		if(sum == x /*&& flag == false*/) {
+			// flag = true;
+			for(int a=0; a<v.size(); ++a) {
+				cout<<v[a]<<" ";
+			}
+			cout<<endl;
+		}
+		return;
+	}
+	v.push_back(arr[i]);
+	f(i+1, n, arr, v, sum, x);
+	v.pop_back();
+	f(i+1, n, arr, v, sum, x);
+}
+int main() {
+	int arr[] = {1, 2, 1};
+	vector<int> v;
+	f(0, 3, arr, v, 0, 2);
+}
